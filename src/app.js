@@ -6,6 +6,7 @@ import signupRoutes from "./routes/signup.routes.js";
 import signinRoutes from "./routes/signin.routes.js";
 import postRoutes from "./routes/post.routes.js";
 import dogsRoutes from "./routes/dogs.routes.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -14,11 +15,13 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
+app.use(cors());
+
 app.use("/api", routes);
 app.use("/", signupRoutes);
 app.use("/signin", signinRoutes);
 app.use("/postagem", postRoutes);
-app.use("/cadastrodog", dogsRoutes);
+app.use("/", dogsRoutes);
 
 db.connect((err, client, done) => {
   if (err) {
