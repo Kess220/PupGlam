@@ -1,10 +1,10 @@
 import Joi from "joi";
 
 export const UserSchema = Joi.object({
-  nome: Joi.string().required(),
+  name: Joi.string().required(),
   email: Joi.string().email().required(),
-  senha: Joi.string().min(6).required(),
-  confirmarSenha: Joi.string().valid(Joi.ref("senha")).required(),
+  password: Joi.string().min(6).required(),
+  confirmPassword: Joi.string().valid(Joi.ref("password")).required(),
   cpf: Joi.string().length(11).required(),
-  telefone: Joi.string().required(),
+  phone: Joi.string().required(),
 });

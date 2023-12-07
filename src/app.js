@@ -1,3 +1,4 @@
+import "express-async-errors";
 import express from "express";
 import dotenv from "dotenv";
 import { db } from "./config/dbConfig.js";
@@ -7,6 +8,7 @@ import signinRoutes from "./routes/signin.routes.js";
 import postRoutes from "./routes/post.routes.js";
 import dogsRoutes from "./routes/dogs.routes.js";
 import cors from "cors";
+import { handleGlobalErrors } from "./middlewares/errorHandler.js";
 
 dotenv.config();
 
@@ -22,6 +24,7 @@ app.use("/", signupRoutes);
 app.use("/signin", signinRoutes);
 app.use("/postagem", postRoutes);
 app.use("/", dogsRoutes);
+app.use(handleGlobalErrors);
 
 db.connect((err, client, done) => {
   if (err) {
