@@ -1,13 +1,21 @@
-import { UserExistsError } from "../errors/UserExistsError.js";
+import httpStatus from "http-status";
+import {
+  UserExistsError,
+  EmailOrPasswordInvalidError,
+} from "../errors/index.js";
 
 export function handleGlobalErrors(err, req, res, next) {
   console.error(err);
 
   if (err instanceof UserExistsError) {
-    return res.status(409).json({ error: err.name, message: err.message });
+    return res.status(httpStatus.CONFLICT).json({ message: err.message });
   }
 
-  res.status(500).json({
+  if (err instanceof EmailOrPasswordInvalidError) {
+    return res.status(httpStatus.CONFLICT).json({ message: err.message });
+  }
+
+  res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
     error: "Erro interno do servidor",
     message: err.message,
   });
