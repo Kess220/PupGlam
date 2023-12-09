@@ -30,7 +30,7 @@ export const getAllPosts = async () => {
   const posts = await PostRepository.getAllPosts();
 
   if (!posts) {
-    throw new NotFoundError();
+    throw new NotFoundError("Post not found");
   }
 
   return posts.rows;
@@ -40,7 +40,7 @@ export const likePost = async (postId, userId) => {
   const existingPost = await PostRepository.getPostById(postId);
 
   if (existingPost.rows.length === 0) {
-    throw new NotFoundError();
+    throw new NotFoundError("Post not found");
   }
 
   const existingLike = await PostRepository.getLikesCount(postId, userId);
@@ -57,7 +57,7 @@ export const unlikePost = async (postId, userId) => {
   const existingPost = await PostRepository.getPostById(postId);
 
   if (existingPost.rows.length === 0) {
-    throw new NotFoundError();
+    throw new NotFoundError("Post not found");
   }
   const existingLike = await PostRepository.getLikesCount(postId, userId);
 
@@ -109,7 +109,7 @@ export const getCommentsByPostId = async (postId) => {
   const comments = await PostRepository.getCommentsByPostId(postId);
 
   if (!comments) {
-    throw new NotFoundError();
+    throw new NotFoundError("Comments not found");
   }
 
   const formattedComments = comments.rows.map((comment) => ({
