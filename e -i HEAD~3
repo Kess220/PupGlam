@@ -1,0 +1,59 @@
+[33mcommit a6a3e60b0bd5a3812fa3c31c10da58c8d84e5813[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Sat Dec 9 12:46:45 2023 -0300
+
+    revert
+
+[33mcommit 4d94f58fd739c0018f43c5b567165c2dc6127a83[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Sat Dec 9 12:37:05 2023 -0300
+
+    .env.example
+
+[33mcommit a8a8d19245a0ab28e13abb91604e880b4421933f[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Sat Dec 9 12:35:54 2023 -0300
+
+    readme
+
+[33mcommit 6fe237ad5123f66f6b5f4153b81d8fdc08db0a79[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Sat Dec 9 11:54:49 2023 -0300
+
+    refactoring for layered architecture and error handling (Posts)
+
+[33mcommit ead3de586bceea12a6fc1f650c4dc8469820e318[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Fri Dec 8 10:46:11 2023 -0300
+
+    refactoring for layered architecture and error handling (Dog)
+
+[33mcommit f4c6d753654379bbffd7a823a6297607e431a018[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Fri Dec 8 07:57:05 2023 -0300
+
+    refactoring for layered architecture and error handling (signIn)
+
+[33mcommit 9d0d02adb37c5dcffacb2f325895cb60d6b6aed9[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Thu Dec 7 17:10:47 2023 -0300
+
+    refactoring for layered architecture (signUp)
+
+[33mcommit e0174b360845a58a0c552695a6b7c741a1eebdf7[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Sun Aug 13 09:30:15 2023 -0300
+
+    deploy
+
+[33mcommit da3f4678a8c7fe146ee9be9fd7e8a679c891ae72[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Wed Aug 9 10:37:58 2023 -0300
+
+    curtidas
+
+[33mcommit 916833c436b86ce02868e5e2434a5f4b32ae47e8[m
+Author: Kess220 <prodvictorkaio@gmail.com>
+Date: Tue Aug 8 14:56:37 2023 -0300
+
+    primeirasFuncionalidades
