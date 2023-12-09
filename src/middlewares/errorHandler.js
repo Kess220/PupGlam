@@ -6,12 +6,21 @@ import {
   MissingFieldError,
   IsNotANumber,
   NotFoundError,
+  StatusDuplicadError,
+  InvalidInputError,
+  UserAlreadyLikedError,
+  UserDidNotLikeError,
 } from "../errors/index.js";
 
 export function handleGlobalErrors(err, req, res, next) {
   console.error(err);
 
-  if (err instanceof UserExistsError) {
+  if (
+    err instanceof UserExistsError ||
+    err instanceof StatusDuplicadError ||
+    err instanceof UserAlreadyLikedError ||
+    err instanceof UserDidNotLikeError
+  ) {
     return res.status(httpStatus.CONFLICT).send({ message: err.message });
   }
 
@@ -29,6 +38,10 @@ export function handleGlobalErrors(err, req, res, next) {
   }
   if (err instanceof NotFoundError) {
     return res.status(httpStatus.NOT_FOUND).send({ message: err.message });
+  }
+
+  if (err instanceof InvalidInputError) {
+    return res.status(httpStatus.BAD_REQUEST).send({ message: err.message });
   }
 
   res.status(httpStatus.INTERNAL_SERVER_ERROR).send({

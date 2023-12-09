@@ -10,6 +10,7 @@ import {
   IsNotANumber,
   MissingFieldError,
   NotFoundError,
+  StatusDuplicadError,
 } from "../errors/index.js";
 
 export async function createDogService(dog, userId) {
@@ -51,6 +52,12 @@ export async function updateDogStatusService(dogId, newStatus) {
 
   if (typeof newStatus !== "boolean") {
     throw new InvalidHireableError();
+  }
+
+  if (existingDog.hireable === newStatus) {
+    throw new StatusDuplicadError(
+      `This dog's status is already as ${newStatus}`
+    );
   }
 
   await updateDogStatus(dogId, newStatus);

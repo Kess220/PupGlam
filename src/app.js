@@ -22,7 +22,7 @@ app.use(cors());
 app.use("/api", routes);
 app.use("/", signupRoutes);
 app.use("/signin", signinRoutes);
-app.use("/postagem", postRoutes);
+app.use("/post", postRoutes);
 app.use("/", dogsRoutes);
 app.use(handleGlobalErrors);
 
