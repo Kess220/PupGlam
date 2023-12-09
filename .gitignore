@@ -26,4 +26,4 @@ node_modules/
 config/config.local.js
 
 ## Ignora arquivos dump
-/backups/*.dump
+/backups
