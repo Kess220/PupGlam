@@ -24,3 +24,6 @@ node_modules/
 
 # Ignorar arquivos de configuração local
 config/config.local.js
+
+## Ignora arquivos dump
+/backups/*.dump
