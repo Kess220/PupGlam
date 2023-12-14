@@ -39,9 +39,22 @@ export const removeLike = async (postId, userId) => {
 };
 
 export const getLikesCount = async (postId) => {
-  const query =
-    "SELECT COUNT(*) AS likes_count, array_agg(user_id) AS users_who_liked FROM likes WHERE post_id = $1";
-  return await db.query(query, [postId]);
+  const query = `
+    SELECT 
+      user_id
+    FROM likes 
+    WHERE post_id = $1`;
+
+  const result = await db.query(query, [postId]);
+
+  const usersWhoLiked = result.rows
+    ? result.rows.map((row) => row.user_id)
+    : [];
+
+  return {
+    likesCount: usersWhoLiked.length,
+    usersWhoLiked,
+  };
 };
 
 export const addCommentToPost = async (text, postId, userId) => {

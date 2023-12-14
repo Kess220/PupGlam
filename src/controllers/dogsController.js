@@ -7,7 +7,7 @@ import {
 
 export async function createDog(req, res) {
   const dog = req.body;
-  const userId = req.user.userId;
+  const { userId } = req.user;
 
   const dogCreated = await createDogService(dog, userId);
   res.status(201).json({
@@ -17,15 +17,15 @@ export async function createDog(req, res) {
 }
 
 export async function getAllDogsByUser(req, res) {
-  const userId = req.user.userId;
+  const { userId } = req.user;
   const dogs = await getAllDogsByUserService(userId);
-  return res.status(200).json({ dogs: dogs });
+  return res.status(200).json({ dogs });
 }
 
 export async function getDogById(req, res) {
-  const dogId = req.params.dogId;
+  const { dogId } = req.params;
   const dog = await getDogByIdService(dogId);
-  return res.status(200).json({ dog: dog });
+  return res.status(200).json({ dog });
 }
 
 export async function updateDogStatus(req, res) {

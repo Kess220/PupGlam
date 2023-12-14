@@ -15,7 +15,6 @@ export const authenticate = (req, res, next) => {
   try {
     const decodedToken = jwt.verify(token, jwtSecret);
     req.user = decodedToken;
-    console.log("Usuário autenticado com ID:", req.user.userId);
     next();
   } catch (error) {
     console.error("Erro ao verificar token:", error);

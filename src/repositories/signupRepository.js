@@ -7,9 +7,10 @@ export async function findUserByEmail(email) {
 }
 
 export async function createUser(user) {
-  const { name, email, password, cpf, phone } = user;
-  const query =
-    "INSERT INTO users (name, email, password, cpf, phone) VALUES ($1, $2, $3, $4, $5) RETURNING *";
+  const {
+    name, email, password, cpf, phone,
+  } = user;
+  const query = "INSERT INTO users (name, email, password, cpf, phone) VALUES ($1, $2, $3, $4, $5) RETURNING *";
   const values = [name, email, password, cpf, phone];
   const result = await db.query(query, values);
   return result.rows[0];

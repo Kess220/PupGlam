@@ -6,7 +6,8 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node ./src/app.js",
-    "dev": "nodemon ./src/app.js"
+    "dev": "nodemon ./src/app.js",
+    "lint": "eslint ."
   },
   "keywords": [
     "locadora",
@@ -28,6 +29,9 @@
     "pg": "^8.11.1"
   },
   "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0",
     "nodemon": "^3.0.1"
   }
 }

@@ -1,13 +1,13 @@
 import "express-async-errors";
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { db } from "./config/dbConfig.js";
 import routes from "./routes/routes.js";
 import signupRoutes from "./routes/signup.routes.js";
 import signinRoutes from "./routes/signin.routes.js";
 import postRoutes from "./routes/post.routes.js";
 import dogsRoutes from "./routes/dogs.routes.js";
-import cors from "cors";
 import { handleGlobalErrors } from "./middlewares/errorHandler.js";
 
 dotenv.config();
@@ -26,7 +26,8 @@ app.use("/post", postRoutes);
 app.use("/", dogsRoutes);
 app.use(handleGlobalErrors);
 
-db.connect((err, client, done) => {
+// eslint-disable-next-line no-unused-vars
+db.connect((err, _client, done) => {
   if (err) {
     console.error("Erro ao conectar-se ao banco de dados:", err);
     return;
